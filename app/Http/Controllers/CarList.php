@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Car;
 use Illuminate\Http\Request;
 
 class CarList extends Controller
 {
     public function carsView(){
-        return view("/cars");
+        $cars = Car::all();
+        return view("/cars", ["cars"=>$cars]);
     }
 }
